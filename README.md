@@ -1,33 +1,29 @@
-# Enterprise Agentic AI & Process Automation
+# Enterprise Agentic AI Evaluation Framework
+> Multi-agent workflows with autonomous tool use, self-reflection, and LLM-as-a-judge evaluation
 
+## Problem
+Customer service teams waste hours on manual triage of return/refund tickets.
+This project automates ~65% of ticket resolution using a multi-agent AI system.
 
-
-## Overview
-This repository showcases a suite of multi-agent Artificial Intelligence workflows designed to automate complex enterprise business processes. Utilizing advanced LLM design patterns—such as autonomous tool use, iterative self-reflection, and multi-step planning—these projects bridge the gap between raw API capabilities and reliable, human-in-the-loop enterprise applications.
-
-## Project Architecture & Repository Structure
-The repository is structured to demonstrate a progression from foundational LLM benchmarking to the deployment of a fully automated, evaluated, and UI-driven enterprise AI agent.
-
-### 1. Model Selection & Optimization
-* **`01_llm_api_benchmarking_openai_groq.ipynb`**
-  * Evaluates and benchmarks inference performance, token costs, and latency between OpenAI and Groq APIs to inform cost-effective architecture decisions.
-
-### 2. Core Agentic Patterns
-* **`02_agentic_tool_use_and_reflection.ipynb`**
-  * Implements dynamic tool invocation (e.g., Web Search APIs) and iterative self-reflection, allowing models to critique, refine, and ground their own outputs autonomously.
-* **`03_multi_agent_orchestration_pipeline.ipynb`**
-  * Architected a multi-role AI content pipeline (`Planner -> Researcher -> Writer -> Editor -> Reviser`). Optimizes enterprise inference costs by strategically routing rapid planning tasks to Groq and complex semantic synthesis to OpenAI.
-
-### 3. Enterprise Deployment & Evaluation
-* **`04_human_in_the_loop_gradio_ui.ipynb`**
-  * Converts backend workflows into an interactive web application using Gradio, engineering a human-in-the-loop system that requires user validation before progressing to the next autonomous step.
-* **`05_ecommerce_returns_automation_and_eval.ipynb`**
-  * Automates an "as-is" e-commerce customer service ticketing process (return/refund workflows). Built on top of a synthetic SQL database (`agentic_returns_demo_10users.db`) and features a rigorous **LLM-as-a-judge** evaluation protocol to automatically assess the accuracy of non-deterministic AI outputs.
+## What I Built
+- Multi-agent orchestration with autonomous web search, iterative self-reflection, and planning
+- Mixed-LLM pipeline routing fast tasks to Groq (~1.1s) and complex synthesis to OpenAI
+- LLM-as-a-judge evaluation framework to score outputs against a ground-truth SQLite database
+- Human-in-the-loop Gradio web app for final review before decisions are applied
 
 ## Tech Stack
-* **LLM APIs & Routing:** OpenAI, Groq
-* **UI & Web Frameworks:** Gradio, Python
-* **Data Storage & Evaluation:** SQLite (`agentic_returns_demo_10users.db`), Prompt-based LLM Evaluation Protocols
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-F55036?style=flat)
+![Gradio](https://img.shields.io/badge/Gradio-FF7C00?style=flat)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
 
-## Business Impact
-By combining high-speed inference routing (Groq) with high-reasoning models (OpenAI) and wrapping them in human-in-the-loop UX (Gradio), these workflows demonstrate how to safely deploy Agentic AI in a corporate environment while controlling cloud computing costs and preventing AI hallucinations.
+## Key Results
+- Reduced average API response time from ~4s to ~1.1s via LLM routing strategy
+- LLM-as-a-judge protocol catches edge-case failures before reaching end users
+
+## How to Run
+1. Clone the repo: `git clone https://github.com/cgy11102/agentic-workflow-engineering`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Add your OpenAI + Groq API keys to `.env`
+4. Run: `jupyter notebook` and open the main notebook
